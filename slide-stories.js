@@ -7,9 +7,9 @@ class SlideStories {
 
   activeSlide(index) {
     this.active = index;
-    this.items.forEach((item) => item.classList.remove('active'));
+    this.items.forEach(item => item.classList.remove('active'));
     this.items[index].classList.add('active');
-    this.thumbItems.forEach((item) => item.classList.remove('active'));
+    this.thumbItems.forEach(item => item.classList.remove('active'));
     this.thumbItems[index].classList.add('active');
     this.autoSlide();
   }
@@ -28,6 +28,7 @@ class SlideStories {
     } else {
       this.activeSlide(0);
     }
+
   }
 
   addNavigation() {
@@ -40,11 +41,12 @@ class SlideStories {
   addThumbItems() {
     this.items.forEach(() => (this.thumb.innerHTML += `<span></span>`));
     this.thumbItems = Array.from(this.thumb.children);
+    console.log(this.thumbItems);
   }
 
   autoSlide() {
-    clearTimeout(this.timeout);
-    this.timeout = setTimeout(this.next, 5000);
+    clearTimeout(this.interval);
+    this.interval = setTimeout(this.next, 5000);
   }
 
   init() {
